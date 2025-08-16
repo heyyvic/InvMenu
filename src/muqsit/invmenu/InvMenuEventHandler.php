@@ -20,20 +20,6 @@ final class InvMenuEventHandler implements Listener{
 	){}
 
 	/**
-	 * @param DataPacketReceiveEvent $event
-	 * @priority NORMAL
-	 */
-	public function onDataPacketReceive(DataPacketReceiveEvent $event) : void{
-		$packet = $event->getPacket();
-		if($packet instanceof NetworkStackLatencyPacket){
-			$player = $event->getOrigin()->getPlayer();
-			if($player !== null){
-				$this->player_manager->getNullable($player)?->network->notify($packet->timestamp);
-			}
-		}
-	}
-
-	/**
 	 * @param InventoryCloseEvent $event
 	 * @priority MONITOR
 	 */
